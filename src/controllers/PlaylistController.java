@@ -60,7 +60,7 @@ public class PlaylistController {
     
     private void deleteTrack() {
         InputHelper inputHelper = new InputHelper();
-        int trackID = inputHelper.readInt("Enter Track ID to Delete", 100, 1);
+        int trackID = inputHelper.readInt("Enter Track ID to Delete", Integer.MAX_VALUE, 1);
        // playlist.removeTrackFromPlaylist(trackID);
        playlist.removeTrackFromPlaylist1(trackID);
     }
