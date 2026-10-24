@@ -28,17 +28,23 @@ public class InputHelper {
     
     // Read Character - set of valid values
     public char readCharacter(String prompt, String validCharacters) {
-        char inputText;
-        boolean inputError;        
+        char inputText = ' ';
+        boolean inputError;
         do {
-            inputError = false;             
+            inputError = false;
             System.out.println(prompt + ": ");
-            inputText = reader.nextLine().toUpperCase().charAt(0);
-            if (validCharacters.indexOf(inputText) == -1) {
+            String line = reader.nextLine().toUpperCase();
+            if (line.isEmpty()) {
                 inputError = true;
-                System.out.println("Character out of range: please re-enter: "); 
+                System.out.println("Nothing entered: please re-enter: ");
+            } else {
+                inputText = line.charAt(0);
+                if (validCharacters.indexOf(inputText) == -1) {
+                    inputError = true;
+                    System.out.println("Character out of range: please re-enter: ");
+                }
             }
-        } while (inputError);        
+        } while (inputError);
         return inputText;
     }     
     
